@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {% for expense in expenses %}
+        <h3> {{ expense.date }} -- {{ expense.amount }} -- {{ expense.expense_item }}</h3>
+
+    {% endfor %}
+
+{% endblock %}

@@ -9,20 +9,33 @@ class ExpenseItem(models.Model):
     expense_item = models.CharField(max_length=40)
     expense_description = models.TextField(max_length=250, null=True)
 
+    def __str__(self):
+        return self.expense_item
+
 
 class Statements(models.Model):
     statement = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.statement
 
 
 class AccountTypes(models.Model):
     account_type = models.CharField(max_length=40)
 
+    def __str__(self):
+        return self.account_type
+
 
 class DefaultChartOfAccounts(models.Model):
     account_number = models.CharField(max_length=8, primary_key=True)
+    account_name = models.CharField(max_length=40, default='SomeAccount')
     account_type = models.ForeignKey(AccountTypes, on_delete=models.CASCADE)
     account_statement = models.ForeignKey(Statements, on_delete=models.CASCADE)
     account_description = models.TextField(max_length=250, null=True)
+
+    def __str__(self):
+        return self.account_name
 
 
 class UserChartOfAccounts(DefaultChartOfAccounts):

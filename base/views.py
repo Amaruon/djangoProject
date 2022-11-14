@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Expense
 
 # Create your views here.
 
@@ -25,3 +26,8 @@ def report(request, pk):
             rep = i
     context = {'report': rep}
     return render(request, 'report.html', context)
+
+
+def expense(request):
+    context = {'expenses': Expense.objects.all()}
+    return render(request, 'expenses.html', context)
