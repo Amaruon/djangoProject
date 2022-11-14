@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <div>
+        {% for report in reps %}
+            <div>
+                <h3>{{ report.id }} -- <a href="/report/{{ report.id }}">{{ report.name }}</a></h3>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
